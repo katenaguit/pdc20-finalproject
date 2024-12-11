@@ -2,58 +2,49 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-dark text-white py-4 mt-4">
+    <footer style={{ backgroundColor: "#D4A373", padding: "2rem 0", marginTop: "4rem", fontFamily: "Arial, sans-serif" }}>
       <div className="container">
         <div className="row text-center text-md-start">
-          {/* About Section */}
+          {}
           <div className="col-md-4 mb-3">
-            <h5>About</h5>
-            <p>
-              BlogBook is a platform for sharing and discovering amazing content.
-              Stay connected and inspired with us.
+            <h5 style={{ color: "#333" }}>About</h5>
+            <p style={{ color: "#333" }}>
+              HerStyle is a daily women's lifestyle site that inspires connection and authenticity through stories on style, culture, food, relationships, and parenting.
             </p>
           </div>
 
-          {/* Links Section */}
+          {}
           <div className="col-md-4 mb-3">
-            <h5>Quick Links</h5>
+            <h5 style={{ color: "#333" }}>Quick Links</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="/" className="text-white text-decoration-none">
-                  Home
-                </a>
+                <a href="/" style={{ color: "#333", textDecoration: "none" }}>Home</a>
               </li>
               <li>
-                <a href="/blog" className="text-white text-decoration-none">
-                  Blog
-                </a>
+                <a href="/blog" style={{ color: "#333", textDecoration: "none" }}>Blog</a>
               </li>
               <li>
-                <a href="/about" className="text-white text-decoration-none">
-                  About
-                </a>
+                <a href="/about" style={{ color: "#333", textDecoration: "none" }}>About</a>
               </li>
               <li>
-                <a href="/contact" className="text-white text-decoration-none">
-                  Contact
-                </a>
+                <a href="/contact" style={{ color: "#333", textDecoration: "none" }}>Contact</a>
               </li>
             </ul>
           </div>
 
-          {/* Contact Section */}
+          {}
           <div className="col-md-4 mb-3">
-            <h5>Contact Us</h5>
-            <p>
+            <h5 style={{ color: "#333" }}>Contact Us</h5>
+            <p style={{ color: "#333" }}>
               <i className="bi bi-geo-alt-fill me-2"></i>Angeles University Foundation
             </p>
-            <p>
-              <i className="bi bi-telephone-fill me-2"></i>+1 (123) 456-7890
+            <p style={{ color: "#333" }}>
+              <i className="bi bi-telephone-fill me-2"></i>+63 9875472431
             </p>
-            <p>
+            <p style={{ color: "#333" }}>
               <i className="bi bi-envelope-fill me-2"></i>
-              <a href="mailto:info@myblog.com" className="text-white text-decoration-none">
-                info@myblog.com
+              <a href="mailto:info@myblog.com" style={{ color: "#333", textDecoration: "none" }}>
+                herstyle@blog.com
               </a>
             </p>
           </div>
@@ -61,9 +52,9 @@ function Footer() {
 
         <hr className="text-white" />
 
-        {/* Copyright Section */}
+        {}
         <div className="text-center">
-          <p>&copy; 2024 BlogBook. All Rights Reserved.</p>
+          <p style={{ color: "#333" }}>&copy; 2024 HerStyle. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

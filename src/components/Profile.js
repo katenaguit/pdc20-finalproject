@@ -12,18 +12,18 @@ const Profile = () => {
     if (loggedIn && currentUser) {
       setUser(currentUser);
     } else {
-      navigate("/login"); // Redirect to login if not logged in
+      navigate("/login");
     }
   }, [navigate]);
 
   if (!user) {
-    return null; // Prevent rendering until user data is loaded
+    return null;
   }
 
   return (
-    <div className="container mt-5">
-      {/* Profile Card */}
-      <div className="card shadow-sm p-4">
+    <div className="container mt-5" style={{ padding: "2rem", backgroundColor: "#FAEDCD", borderRadius: "8px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}>
+      {}
+      <div className="card shadow-sm p-4" style={{ padding: "1.5rem", backgroundColor: "#E9EDC9", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)" }}>
         <div className="text-center">
           <img
             src={user.profilePhoto || "https://via.placeholder.com/150"}
@@ -45,6 +45,7 @@ const Profile = () => {
           <button
             className="btn btn-primary"
             onClick={() => alert("Edit Profile Feature Coming Soon!")}
+            style={{ backgroundColor: "#D4A373", color: "white", border: "none", padding: "0.5rem 1rem", borderRadius: "4px", cursor: "pointer" }}
           >
             Edit Profile
           </button>

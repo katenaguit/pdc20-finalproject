@@ -9,7 +9,7 @@ const Contact = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState({ type: "", message: "" }); // For success or error messages
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,131 +20,167 @@ const Contact = () => {
     e.preventDefault();
     const { name, email, subject, message } = formData;
 
-    // EmailJS service call
     emailjs
       .send(
-        "service_vvmfovu", 
-        "template_j6abqnt", 
+        "service_vvmfovu",
+        "template_j6abqnt",
         { name, email, subject, message },
-        "Mqz3JnJd33k_pgyPY" 
+        "Mqz3JnJd33k_pgyPY"
       )
       .then(
         (response) => {
-          console.log("SUCCESS!", response.status, response.text);
           setStatus({ type: "success", message: "Message sent successfully!" });
-          setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
+          setFormData({ name: "", email: "", subject: "", message: "" });
         },
         (err) => {
-          console.error("FAILED...", err);
-          setStatus({
-            type: "error",
-            message: "Failed to send message. Please try again.",
-          });
+          setStatus({ type: "error", message: "Failed to send message. Please try again." });
         }
       );
   };
 
   return (
-    <div className="container mt-5">
-      {/* Hero Section */}
-      <div className="bg-primary text-white text-center p-5 rounded shadow-sm">
-        <h1 className="fw-bold">Contact Us</h1>
-        <p className="lead">
-          Have questions or need assistance? We're here to help.
+    <div style={{ margin: "2rem auto", maxWidth: "1200px", padding: "2rem", fontFamily: "Arial, sans-serif" }}>
+      {}
+      <div style={{
+        textAlign: "center",
+        padding: "2rem",
+        backgroundColor: "#CCD5AE",
+        borderRadius: "8px",
+        color: "#333"
+      }}>
+        <h1 style={{ fontWeight: "bold" }}>Get in Touch</h1>
+        <p style={{ fontSize: "1.2rem", margin: "1rem 0" }}>
+          We would love to hear from you. Fill out the form below or reach us through our contact information.
         </p>
       </div>
 
-      {/* Contact Form Section */}
-      <div className="row mt-5">
-        <div className="col-md-6">
-          <h3 className="mb-4">Get in Touch</h3>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Name</label>
-              <input
-                type="text"
-                className="form-control"
-                name="name"
-                placeholder="Enter your name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                name="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Subject</label>
-              <input
-                type="text"
-                className="form-control"
-                name="subject"
-                placeholder="Enter the subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Message</label>
-              <textarea
-                className="form-control"
-                rows="5"
-                name="message"
-                placeholder="Write your message here..."
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary w-100">
-              Send Message
-            </button>
-          </form>
-          {/* Status Message */}
-          {status.message && (
-            <div
-              className={`alert mt-3 ${
-                status.type === "success" ? "alert-success" : "alert-danger"
-              }`}
-              role="alert"
-            >
-              {status.message}
-            </div>
-          )}
+      {}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", marginTop: "2rem" }}>
+        {}
+        <div style={{ flex: "1", minWidth: "300px" }}>
+          <div style={{
+            padding: "2rem",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            borderRadius: "8px",
+            backgroundColor: "#FAEDCD"
+          }}>
+            <h3 style={{ marginBottom: "1.5rem", textAlign: "center" }}>Send Us a Message</h3>
+            <form onSubmit={handleSubmit}>
+              <div style={{ marginBottom: "1rem" }}>
+                <label style={{ display: "block", marginBottom: ".5rem" }}>Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  style={{ width: "100%", padding: "0.5rem", borderRadius: "4px", border: "1px solid #E9EDC9" }}
+                />
+              </div>
+              <div style={{ marginBottom: "1rem" }}>
+                <label style={{ display: "block", marginBottom: ".5rem" }}>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  style={{ width: "100%", padding: "0.5rem", borderRadius: "4px", border: "1px solid #E9EDC9" }}
+                />
+              </div>
+              <div style={{ marginBottom: "1rem" }}>
+                <label style={{ display: "block", marginBottom: ".5rem" }}>Subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  style={{ width: "100%", padding: "0.5rem", borderRadius: "4px", border: "1px solid #E9EDC9" }}
+                />
+              </div>
+              <div style={{ marginBottom: "1rem" }}>
+                <label style={{ display: "block", marginBottom: ".5rem" }}>Message</label>
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="5"
+                  required
+                  style={{ width: "100%", padding: "0.5rem", borderRadius: "4px", border: "1px solid #E9EDC9" }}
+                ></textarea>
+              </div>
+              <button type="submit" style={{
+                width: "100%",
+                padding: "0.75rem",
+                backgroundColor: "#D4A373",
+                border: "none",
+                borderRadius: "4px",
+                color: "#fff",
+                fontWeight: "bold",
+                cursor: "pointer"
+              }}>
+                Send Message
+              </button>
+            </form>
+            {status.message && (
+              <div style={{
+                marginTop: "1rem",
+                padding: "0.75rem",
+                borderRadius: "4px",
+                color: status.type === "success" ? "#155724" : "#721c24",
+                backgroundColor: status.type === "success" ? "#d4edda" : "#f8d7da"
+              }}>
+                {status.message}
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Contact Information Section */}
-        <div className="col-md-6">
-          <h3 className="mb-4">Contact Information</h3>
-          <ul className="list-unstyled">
-            <li className="mb-3">
-              <i className="bi bi-geo-alt-fill text-primary me-2"></i>
-              <strong>Address:</strong> 123 BlogSite Street, Web City
-            </li>
-            <li className="mb-3">
-              <i className="bi bi-telephone-fill text-primary me-2"></i>
-              <strong>Phone:</strong> +1 (123) 456-7890
-            </li>
-            <li className="mb-3">
-              <i className="bi bi-envelope-fill text-primary me-2"></i>
-              <strong>Email:</strong> blogsite911@gmail.com
-            </li>
-            <li>
-              <i className="bi bi-clock-fill text-primary me-2"></i>
-              <strong>Working Hours:</strong> Mon-Fri, 9am - 5pm
-            </li>
-          </ul>
+        {}
+        <div style={{ flex: "1", minWidth: "300px" }}>
+          <div style={{
+            padding: "2rem",
+            borderRadius: "8px",
+            backgroundColor: "#FAEDCD",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)"
+          }}>
+            <h3 style={{ marginBottom: "1.5rem", textAlign: "center" }}>Contact Information</h3>
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              <li style={{ marginBottom: "1rem", display: "flex" }}>
+                <i className="bi bi-geo-alt-fill" style={{ color: "#D4A373", fontSize: "1.5rem", marginRight: "1rem" }}></i>
+                <div>
+                  <strong>Address:</strong>
+                  <p>999 HerStyle Lane, Philippines, PH 10001</p>
+                </div>
+              </li>
+              <li style={{ marginBottom: "1rem", display: "flex" }}>
+                <i className="bi bi-telephone-fill" style={{ color: "#D4A373", fontSize: "1.5rem", marginRight: "1rem" }}></i>
+                <div>
+                  <strong>Phone:</strong>
+                  <p>+63 9875472431</p>
+                </div>
+              </li>
+              <li style={{ marginBottom: "1rem", display: "flex" }}>
+                <i className="bi bi-envelope-fill" style={{ color: "#D4A373", fontSize: "1.5rem", marginRight: "1rem" }}></i>
+                <div>
+                  <strong>Email:</strong>
+                  <p>herstyle@gmail.com</p>
+                </div>
+              </li>
+              <li style={{ display: "flex" }}>
+                <i className="bi bi-clock-fill" style={{ color: "#D4A373", fontSize: "1.5rem", marginRight: "1rem" }}></i>
+                <div>
+                  <strong>Working Hours:</strong>
+                  <p>Monday to Friday, 8:00am - 5:00pm</p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

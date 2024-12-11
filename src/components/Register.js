@@ -9,8 +9,8 @@ function Register() {
     accountInfo: { username: "", password: "", profilePhoto: null },
     additionalDetails: { bio: "" },
   });
-  const [showSuccess, setShowSuccess] = useState(false); // State for success message
-  const navigate = useNavigate(); // Hook for navigation
+  const [showSuccess, setShowSuccess] = useState(false); 
+  const navigate = useNavigate(); 
 
   const handleInputChange = (section, field, value) => {
     setFormData((prev) => ({
@@ -50,13 +50,13 @@ function Register() {
       bio: formData.additionalDetails.bio,
     };
 
-    // Save the new user in localStorage
+
     localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]));
 
-    // Show success message
+
     setShowSuccess(true);
 
-    // Reset the form and navigate after a delay
+    
     setTimeout(() => {
       setFormData({
         personalInfo: { firstName: "", lastName: "", dob: "" },
@@ -65,36 +65,42 @@ function Register() {
         additionalDetails: { bio: "" },
       });
       setActiveTab(1);
-      setShowSuccess(false); // Hide the message
-      navigate("/login"); // Redirect to the login page
-    }, 2000); // 2 seconds delay
+      setShowSuccess(false); 
+      navigate("/login"); 
+    }, 2000); 
   };
 
   return (
-    <div className="container my-5">
-      {/* Title Section */}
-      <div className="text-center mb-4">
-        <h1 className="fw-bold">Create Your Account</h1>
-        <p className="text-muted">
+    <div style={{ maxWidth: "800px", margin: "2rem auto", fontFamily: "Arial, sans-serif" }}>
+      {}
+      <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+        <h1 style={{ fontWeight: "bold" }}>Create Your Account</h1>
+        <p style={{ color: "#666" }}>
           Fill out the form step by step to register your account.
         </p>
       </div>
 
-      {/* Success Message */}
+      {}
       {showSuccess && (
-        <div className="alert alert-success" role="alert">
+        <div
+          style={{
+            padding: "1rem",
+            borderRadius: "4px",
+            backgroundColor: "#d4edda",
+            color: "#155724",
+            marginBottom: "1rem",
+          }}
+        >
           Registration successful! Redirecting to the login page...
         </div>
       )}
 
-      {/* Progress Bar */}
+      {}
       <div className="progress mb-4">
         <div
-          className={`progress-bar ${
-            activeTab === 4 ? "bg-success" : "bg-primary"
-          }`}
+          className={`progress-bar ${activeTab === 4 ? "bg-success" : "bg-info"}`}
           role="progressbar"
-          style={{ width: `${(activeTab / 4) * 100}%` }}
+          style={{ width: `${(activeTab / 4) * 100}%`, backgroundColor: "#17a2b8" }}
           aria-valuenow={(activeTab / 4) * 100}
           aria-valuemin="0"
           aria-valuemax="100"
@@ -103,7 +109,7 @@ function Register() {
         </div>
       </div>
 
-      {/* Tab Content */}
+      {}
       <div className="card shadow-sm">
         <div className="card-body">
           {activeTab === 1 && (
@@ -238,15 +244,15 @@ function Register() {
             </div>
           )}
 
-          {/* Navigation Buttons */}
+          {}
           <div className="d-flex justify-content-between mt-4">
             {activeTab > 1 && (
-              <button className="btn btn-secondary" onClick={handlePrevious}>
+              <button className="btn btn-light" onClick={handlePrevious}>
                 Previous
               </button>
             )}
             {activeTab < 4 ? (
-              <button className="btn btn-primary ms-auto" onClick={handleNext}>
+              <button className="btn btn-info ms-auto" onClick={handleNext}>
                 Next
               </button>
             ) : (

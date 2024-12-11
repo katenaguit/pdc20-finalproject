@@ -4,12 +4,12 @@ const Header = ({ loggedIn, onLogout }) => {
   const navigate = useNavigate(); // Initialize useNavigate for programmatic navigation
 
   const handleLogout = () => {
-    onLogout(); // Call the parent logout handler
-    navigate("/login"); // Redirect to the login page
+    onLogout(); 
+    navigate("/login"); 
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "#D4A373" }}>
       <div className="container">
         <NavLink
           className="navbar-brand"
@@ -18,9 +18,10 @@ const Header = ({ loggedIn, onLogout }) => {
             fontFamily: "'Inter', sans-serif",
             fontWeight: "bold",
             fontSize: "28px",
+            color: "white"
           }}
         >
-          <span style={{ color: "blue" }}>Blog</span>Book
+          <span style={{ color: "#FAEDCD" }}>Her</span>Style
         </NavLink>
         <button
           className="navbar-toggler"
@@ -39,9 +40,7 @@ const Header = ({ loggedIn, onLogout }) => {
               <NavLink
                 className="nav-link"
                 to="/"
-                style={({ isActive }) =>
-                  isActive ? { borderBottom: "2px solid black" } : {}
-                }
+                style={({ isActive }) => (isActive ? { borderBottom: "2px solid #FAEDCD" } : {})}
               >
                 Home
               </NavLink>
@@ -52,9 +51,7 @@ const Header = ({ loggedIn, onLogout }) => {
                   <NavLink
                     className="nav-link"
                     to="/profile"
-                    style={({ isActive }) =>
-                      isActive ? { borderBottom: "2px solid black" } : {}
-                    }
+                    style={({ isActive }) => (isActive ? { borderBottom: "2px solid #FAEDCD" } : {})}
                   >
                     Profile
                   </NavLink>
@@ -63,9 +60,7 @@ const Header = ({ loggedIn, onLogout }) => {
                   <NavLink
                     className="nav-link"
                     to="/blog"
-                    style={({ isActive }) =>
-                      isActive ? { borderBottom: "2px solid black" } : {}
-                    }
+                    style={({ isActive }) => (isActive ? { borderBottom: "2px solid #FAEDCD" } : {})}
                   >
                     My Blog
                   </NavLink>
@@ -76,9 +71,7 @@ const Header = ({ loggedIn, onLogout }) => {
               <NavLink
                 className="nav-link"
                 to="/about"
-                style={({ isActive }) =>
-                  isActive ? { borderBottom: "2px solid black" } : {}
-                }
+                style={({ isActive }) => (isActive ? { borderBottom: "2px solid #FAEDCD" } : {})}
               >
                 About
               </NavLink>
@@ -87,9 +80,7 @@ const Header = ({ loggedIn, onLogout }) => {
               <NavLink
                 className="nav-link"
                 to="/contact"
-                style={({ isActive }) =>
-                  isActive ? { borderBottom: "2px solid black" } : {}
-                }
+                style={({ isActive }) => (isActive ? { borderBottom: "2px solid #FAEDCD" } : {})}
               >
                 Contact
               </NavLink>
@@ -97,8 +88,8 @@ const Header = ({ loggedIn, onLogout }) => {
             {loggedIn ? (
               <li className="nav-item">
                 <button
-                  className="btn btn-outline-danger nav-link"
-                  onClick={handleLogout} // Use the fixed logout handler
+                  className="btn btn-outline-light nav-link"
+                  onClick={handleLogout} 
                 >
                   Logout
                 </button>
@@ -108,9 +99,7 @@ const Header = ({ loggedIn, onLogout }) => {
                 <NavLink
                   className="nav-link"
                   to="/login"
-                  style={({ isActive }) =>
-                    isActive ? { borderBottom: "2px solid black" } : {}
-                  }
+                  style={({ isActive }) => (isActive ? { borderBottom: "2px solid #FAEDCD" } : {})}
                 >
                   Login
                 </NavLink>

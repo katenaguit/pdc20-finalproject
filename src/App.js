@@ -15,13 +15,13 @@ import Footer from "./components/Footer";
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // Check login status from localStorage on app load
+  
   useEffect(() => {
     const userLoggedIn = localStorage.getItem("loggedIn") === "true";
     setLoggedIn(userLoggedIn);
   }, []);
 
-  // Handle logout
+  
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
     setLoggedIn(false);
@@ -30,10 +30,10 @@ const App = () => {
   return (
     <Router>
       <div className="d-flex flex-column min-vh-100">
-        {/* Header */}
+        {}
         <Header loggedIn={loggedIn} onLogout={handleLogout} />
 
-        {/* Main Content */}
+        {}
         <div className="flex-grow-1">
           <Routes>
             <Route
@@ -53,12 +53,12 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/other-blogs" element={<OtherBlogs />} />
-            {/* Fallback route */}
+            {}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
 
-        {/* Footer */}
+        {}
         <Footer />
       </div>
     </Router>

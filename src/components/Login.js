@@ -5,8 +5,8 @@ const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(""); // Success message state
-  const navigate = useNavigate(); // Hook for navigation
+  const [success, setSuccess] = useState(""); 
+  const navigate = useNavigate(); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,70 +19,156 @@ const Login = ({ onLogin }) => {
     if (user) {
       setError("");
       setSuccess(`Welcome back, ${user.firstName}! Redirecting to blogs...`);
-      localStorage.setItem("loggedIn", "true"); // Set login status
-      localStorage.setItem("currentUser", JSON.stringify(user)); // Store user info
-      onLogin(); // Notify parent component about login
+      localStorage.setItem("loggedIn", "true"); 
+      localStorage.setItem("currentUser", JSON.stringify(user)); 
+      onLogin(); 
 
-      // Redirect to the profile page after a brief delay
+      
       setTimeout(() => navigate("/blog"), 2000);
     } else {
       setError("Invalid email or password. Please try again.");
-      setSuccess(""); // Clear success message
+      setSuccess(""); 
     }
   };
 
   return (
-    <div className="container mt-5">
-      {/* Hero Section */}
-      <div className="text-center mb-4">
-        <h1 className="fw-bold">Welcome Back</h1>
-        <p className="text-muted">Please login to access your account.</p>
+    <div style={{ maxWidth: "800px", margin: "2rem auto", fontFamily: "Arial, sans-serif" }}>
+      {}
+      <div
+        style={{
+          textAlign: "center",
+          padding: "2rem",
+          backgroundColor: "#FAEDCD",
+          borderRadius: "8px",
+          color: "#333",
+        }}
+      >
+        <h1 style={{ fontWeight: "bold" }}>Welcome Back</h1>
+        <p style={{ fontSize: "1.2rem", margin: "1rem 0" }}>
+          Log in to access your account and explore new blogs.
+        </p>
       </div>
 
-      {/* Login Form Section */}
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card shadow-sm p-4">
-            <h3 className="text-center mb-4">Login</h3>
+      {}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "2rem",
+        }}
+      >
+        <div style={{ width: "100%", maxWidth: "500px" }}>
+          <div
+            style={{
+              padding: "2rem",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              borderRadius: "8px",
+              backgroundColor: "#FFF",
+            }}
+          >
+            <h3 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+              Login to Your Account
+            </h3>
             <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label className="form-label">Email</label>
+              <div style={{ marginBottom: "1rem" }}>
+                <label style={{ display: "block", marginBottom: ".5rem" }}>
+                  Email Address
+                </label>
                 <input
                   type="email"
-                  className="form-control"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  style={{
+                    width: "100%",
+                    padding: "0.5rem",
+                    borderRadius: "4px",
+                    border: "1px solid #CCD5AE",
+                  }}
                 />
               </div>
-              <div className="mb-3">
-                <label className="form-label">Password</label>
+              <div style={{ marginBottom: "1rem" }}>
+                <label style={{ display: "block", marginBottom: ".5rem" }}>
+                  Password
+                </label>
                 <input
                   type="password"
-                  className="form-control"
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  style={{
+                    width: "100%",
+                    padding: "0.5rem",
+                    borderRadius: "4px",
+                    border: "1px solid #CCD5AE",
+                  }}
                 />
               </div>
-              {error && <div className="alert alert-danger">{error}</div>}
-              {success && <div className="alert alert-success">{success}</div>}
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <Link to="/forgot-password" className="text-decoration-none">
+              {error && (
+                <div
+                  style={{
+                    padding: "0.75rem",
+                    borderRadius: "4px",
+                    color: "#721c24",
+                    backgroundColor: "#f8d7da",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {error}
+                </div>
+              )}
+              {success && (
+                <div
+                  style={{
+                    padding: "0.75rem",
+                    borderRadius: "4px",
+                    color: "#155724",
+                    backgroundColor: "#d4edda",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {success}
+                </div>
+              )}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                }}
+              >
+                <Link to="/forgot-password" style={{ color: "#D4A373", textDecoration: "none" }}>
                   Forgot Password?
                 </Link>
               </div>
-              <button type="submit" className="btn btn-primary w-100">
+              <button
+                type="submit"
+                style={{
+                  width: "100%",
+                  padding: "0.75rem",
+                  backgroundColor: "#D4A373",
+                  border: "none",
+                  borderRadius: "4px",
+                  color: "#fff",
+                  fontWeight: "bold",
+                  cursor: "pointer",
+                }}
+              >
                 Login
               </button>
             </form>
-            <div className="text-center mt-3">
-              <p className="mb-0">
+            <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
+              <p>
                 Don’t have an account?{" "}
-                <Link to="/register" className="text-primary text-decoration-none">
-                  Sign Up
+                <Link
+                  to="/register"
+                  style={{ color: "#D4A373", textDecoration: "none" }}
+                >
+                  Sign Up Here
                 </Link>
               </p>
             </div>
